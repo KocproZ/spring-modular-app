@@ -10,7 +10,7 @@ plugins {
 }
 
 springBoot {
-    mainClass.set("my.great.ApplicationKt")
+    mainClass.set("my.great.app.ApplicationKt")
 }
 
 val ktormVersion = "3.6.0"
@@ -33,8 +33,16 @@ dependencies {
     implementation("org.ktorm:ktorm-core:$ktormVersion")
     implementation("org.ktorm:ktorm-support-postgresql:$ktormVersion")
     implementation("org.ktorm:ktorm-jackson:$ktormVersion")
+
+    // openapi
+    implementation("org.springdoc:springdoc-openapi-starter-webflux-ui:2.0.2")
+
     runtimeOnly("org.postgresql:postgresql:42.5.3")
 
+    testImplementation("org.testcontainers:postgresql:1.17.6")
+    testImplementation("org.testcontainers:junit-jupiter:1.17.6")
+    testImplementation("io.mockk:mockk:1.13.2")
+    testImplementation("io.projectreactor:reactor-test")
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
     }

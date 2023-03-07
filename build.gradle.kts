@@ -4,7 +4,7 @@ plugins {
     id("io.gitlab.arturbosch.detekt") version "1.20.0"
 }
 
-group = "my.great"
+group = "my.great.app"
 version = "0.0.1-SNAPSHOT"
 
 detekt {
